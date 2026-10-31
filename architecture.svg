@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1000" viewBox="0 0 1280 1000" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#444444"/>
+    </marker>
+    <marker id="arrowX" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#B00020"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="0" y="0" width="1280" height="1000" fill="#ffffff"/>
+
+  <!-- AWS Cloud outer -->
+  <rect x="16" y="16" width="1248" height="968" rx="8" fill="none" stroke="#333333" stroke-width="2"/>
+  <rect x="28" y="28" width="64" height="40" fill="#232F3E"/>
+  <text x="60" y="54" text-anchor="middle" fill="#ffffff" font-size="20" font-weight="bold">aws</text>
+  <text x="102" y="54" fill="#232F3E" font-size="18" font-weight="bold">AWS Cloud</text>
+
+  <!-- Region -->
+  <rect x="28" y="84" width="1224" height="884" fill="none" stroke="#7AA800" stroke-width="2" stroke-dasharray="10,6"/>
+  <text x="44" y="108" fill="#5A7A00" font-size="14" font-weight="bold">AWS Region — ap-southeast-1</text>
+
+  <!-- Legend -->
+  <g font-size="11">
+    <text x="952" y="132" fill="#232F3E" font-size="12" font-weight="bold">Legend</text>
+    <rect x="952" y="140" width="14" height="14" fill="#FF9900"/><text x="972" y="152" fill="#333">Compute (EC2)</text>
+    <rect x="952" y="160" width="14" height="14" fill="#3B48CC"/><text x="972" y="172" fill="#333">Database (RDS)</text>
+    <rect x="952" y="180" width="14" height="14" fill="#7AA800"/><text x="972" y="192" fill="#333">Storage &amp; VPC</text>
+    <rect x="952" y="200" width="14" height="14" fill="#8C4FFF"/><text x="972" y="212" fill="#333">Networking</text>
+    <rect x="952" y="220" width="14" height="10" fill="none" stroke="#2E86C1" stroke-width="1.5" stroke-dasharray="5,3"/><text x="972" y="230" fill="#333">Availability Zone</text>
+  </g>
+
+  <!-- ============ TRANSIT GATEWAY HUB ============ -->
+  <rect x="585" y="130" width="110" height="110" rx="10" fill="#8C4FFF"/>
+  <g stroke="#ffffff" stroke-width="4" fill="none">
+    <circle cx="640" cy="185" r="10" fill="#ffffff" stroke="none"/>
+    <line x1="640" y1="185" x2="606" y2="151"/><line x1="640" y1="185" x2="674" y2="151"/>
+    <line x1="640" y1="185" x2="606" y2="219"/><line x1="640" y1="185" x2="674" y2="219"/>
+    <circle cx="606" cy="151" r="7" fill="#ffffff" stroke="none"/><circle cx="674" cy="151" r="7" fill="#ffffff" stroke="none"/>
+    <circle cx="606" cy="219" r="7" fill="#ffffff" stroke="none"/><circle cx="674" cy="219" r="7" fill="#ffffff" stroke="none"/>
+  </g>
+  <text x="640" y="260" text-anchor="middle" fill="#232F3E" font-size="14" font-weight="bold">AWS Transit Gateway</text>
+  <text x="640" y="278" text-anchor="middle" fill="#555555" font-size="12" font-style="italic">Central hub router</text>
+
+  <!-- TGW route tables -->
+  <line x1="610" y1="240" x2="560" y2="300" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="670" y1="240" x2="720" y2="300" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="430" y="300" width="220" height="86" rx="6" fill="#F4F0FA" stroke="#8C4FFF" stroke-width="1.5"/>
+  <text x="540" y="322" text-anchor="middle" font-size="12" font-weight="bold" fill="#5B2D8E">TGW route table: shared</text>
+  <text x="540" y="340" text-anchor="middle" font-size="11" fill="#333">assoc: shared-svc attachment</text>
+  <text x="540" y="356" text-anchor="middle" font-size="11" fill="#333">propagated: shared-svc, inspection</text>
+  <text x="540" y="372" text-anchor="middle" font-size="11" fill="#333">propagated: on-prem (DX)</text>
+  <rect x="680" y="300" width="250" height="86" rx="6" fill="#F4F0FA" stroke="#8C4FFF" stroke-width="1.5"/>
+  <text x="805" y="322" text-anchor="middle" font-size="12" font-weight="bold" fill="#5B2D8E">TGW route table: isolated-prod</text>
+  <text x="805" y="340" text-anchor="middle" font-size="11" fill="#333">assoc: prod attachment</text>
+  <text x="805" y="356" text-anchor="middle" font-size="11" fill="#333">propagated: shared-svc, prod</text>
+  <text x="805" y="372" text-anchor="middle" font-size="11" fill="#333">static: 0.0.0.0/0 → inspection</text>
+
+  <!-- ============ SHARED SERVICES VPC ============ -->
+  <rect x="44" y="410" width="300" height="392" rx="6" fill="none" stroke="#1E8C45" stroke-width="2"/>
+  <rect x="44" y="410" width="20" height="20" fill="#1E8C45"/>
+  <g transform="translate(54,421)" fill="none" stroke="#ffffff" stroke-width="1.6">
+    <path d="M2 8 a6 6 0 0 1 12 0 a6 6 0 0 1 -12 0 M2 8 h12 M8 2 v12"/>
+  </g>
+  <text x="74" y="426" font-size="13" font-weight="bold" fill="#1E8C45">VPC — Shared services</text>
+  <text x="330" y="426" text-anchor="end" font-size="11" fill="#555" font-style="italic">10.10.0.0/16</text>
+  <rect x="56" y="440" width="132" height="350" fill="none" stroke="#2E86C1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="122" y="460" text-anchor="middle" font-size="11" fill="#2E86C1">Availability Zone A</text>
+  <rect x="200" y="440" width="132" height="350" fill="none" stroke="#2E86C1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="266" y="460" text-anchor="middle" font-size="11" fill="#2E86C1">Availability Zone B</text>
+  <!-- Route53 AZ-a -->
+  <rect x="90" y="472" width="64" height="64" rx="8" fill="#8C4FFF"/>
+  <g stroke="#ffffff" stroke-width="2.5" fill="none">
+    <circle cx="122" cy="504" r="16"/><ellipse cx="122" cy="504" rx="7" ry="16"/><line x1="106" y1="504" x2="138" y2="504"/>
+  </g>
+  <text x="122" y="552" text-anchor="middle" font-size="11" font-weight="bold" fill="#232F3E">Amazon Route 53</text>
+  <text x="122" y="566" text-anchor="middle" font-size="10" font-style="italic" fill="#555">DNS service</text>
+  <!-- S3 AZ-a -->
+  <rect x="90" y="584" width="64" height="64" rx="8" fill="#7AA800"/>
+  <g stroke="#ffffff" stroke-width="2.5" fill="none">
+    <path d="M106 596 h32 l-4 34 a6 6 0 0 1 -6 5 h-12 a6 6 0 0 1 -6 -5 z"/><ellipse cx="122" cy="596" rx="16" ry="5"/>
+  </g>
+  <text x="122" y="664" text-anchor="middle" font-size="11" font-weight="bold" fill="#232F3E">Amazon S3</text>
+  <text x="122" y="678" text-anchor="middle" font-size="10" font-style="italic" fill="#555">Shared artifacts</text>
+  <!-- Route53 Resolver AZ-b -->
+  <rect x="234" y="472" width="64" height="64" rx="8" fill="#8C4FFF"/>
+  <g stroke="#ffffff" stroke-width="2.5" fill="none">
+    <circle cx="266" cy="504" r="16"/><ellipse cx="266" cy="504" rx="7" ry="16"/><line x1="250" y1="504" x2="282" y2="504"/>
+  </g>
+  <text x="266" y="552" text-anchor="middle" font-size="11" font-weight="bold" fill="#232F3E">Route 53 Resolver</text>
+  <text x="266" y="566" text-anchor="middle" font-size="10" font-style="italic" fill="#555">Hybrid DNS</text>
+  <!-- EC2 shared tools AZ-b -->
+  <rect x="234" y="584" width="64" height="64" rx="8" fill="#FF9900"/>
+  <g fill="#ffffff">
+    <rect x="244" y="594" width="44" height="12" rx="2"/><rect x="244" y="610" width="44" height="12" rx="2"/><rect x="244" y="626" width="44" height="12" rx="2"/>
+    <circle cx="250" cy="600" r="2.4" fill="#FF9900"/><circle cx="250" cy="616" r="2.4" fill="#FF9900"/><circle cx="250" cy="632" r="2.4" fill="#FF9900"/>
+  </g>
+  <text x="266" y="664" text-anchor="middle" font-size="11" font-weight="bold" fill="#232F3E">EC2 Instances</text>
+  <text x="266" y="678" text-anchor="middle" font-size="10" font-style="italic" fill="#555">Shared tools</text>
+
+  <!-- ============ INSPECTION VPC ============ -->
+  <rect x="490" y="410" width="300" height="392" rx="6" fill="none" stroke="#1E8C45" stroke-width="2"/>
+  <text x="504" y="426" font-size="13" font-weight="bold" fill="#1E8C45">VPC — Inspection</text>
+  <text x="776" y="426" text-anchor="end" font-size="11" fill="#555" font-style="italic">10.99.0.0/24</text>
+  <rect x="606" y="448" width="68" height="68" rx="8" fill="#8C4FFF"/>
+  <g stroke="#ffffff" stroke-width="3" fill="none">
+    <rect x="618" y="462" width="44" height="26" rx="4"/>
+    <line x1="630" y1="462" x2="630" y2="454"/><path d="M624 458 l6 -6 6 6"/>
+    <line x1="650" y1="488" x2="650" y2="496"/><path d="M644 492 l6 6 6 -6"/>
+  </g>
+  <text x="640" y="532" text-anchor="middle" font-size="11" font-weight="bold" fill="#232F3E">Gateway Load Balancer</text>
+  <text x="640" y="546" text-anchor="middle" font-size="10" font-style="italic" fill="#555">Traffic distribution point</text>
+  <rect x="540" y="570" width="60" height="60" rx="8" fill="#FF9900"/>
+  <g fill="#ffffff">
+    <rect x="549" y="579" width="42" height="11" rx="2"/><rect x="549" y="594" width="42" height="11" rx="2"/><rect x="549" y="609" width="42" height="11" rx="2"/>
+  </g>
+  <rect x="680" y="570" width="60" height="60" rx="8" fill="#FF9900"/>
+  <g fill="#ffffff">
+    <rect x="689" y="579" width="42" height="11" rx="2"/><rect x="689" y="594" width="42" height="11" rx="2"/><rect x="689" y="609" width="42" height="11" rx="2"/>
+  </g>
+  <text x="640" y="648" text-anchor="middle" font-size="11" font-weight="bold" fill="#232F3E">EC2 Instances</text>
+  <text x="640" y="662" text-anchor="middle" font-size="10" font-style="italic" fill="#555">Firewall appliances</text>
+  <text x="640" y="700" text-anchor="middle" font-size="11" fill="#555" font-style="italic">appliance mode: on</text>
+  <text x="640" y="716" text-anchor="middle" font-size="11" fill="#555" font-style="italic">(symmetric return traffic)</text>
+  <text x="640" y="748" text-anchor="middle" font-size="11" fill="#555" font-style="italic">NAT gateway → internet egress</text>
+  <text x="640" y="764" text-anchor="middle" font-size="11" fill="#555" font-style="italic">for inspected spokes</text>
+
+  <!-- ============ PROD VPC ============ -->
+  <rect x="936" y="410" width="300" height="392" rx="6" fill="none" stroke="#1E8C45" stroke-width="2"/>
+  <text x="950" y="426" font-size="13" font-weight="bold" fill="#1E8C45">VPC — Prod app</text>
+  <text x="1222" y="426" text-anchor="end" font-size="11" fill="#555" font-style="italic">10.20.0.0/16</text>
+  <rect x="948" y="440" width="132" height="350" fill="none" stroke="#2E86C1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="1014" y="460" text-anchor="middle" font-size="11" fill="#2E86C1">Availability Zone A</text>
+  <rect x="1092" y="440" width="132" height="350" fill="none" stroke="#2E86C1" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="1158" y="460" text-anchor="middle" font-size="11" fill="#2E86C1">Availability Zone B</text>
+  <!-- AZ-a tiers -->
+  <rect x="956" y="470" width="116" height="86" rx="4" fill="#EAF2FA"/>
+  <text x="1014" y="484" text-anchor="middle" font-size="10" fill="#2E86C1">Web subnet</text>
+  <rect x="992" y="490" width="44" height="44" rx="6" fill="#FF9900"/>
+  <g fill="#ffffff"><rect x="999" y="496" width="30" height="9" rx="2"/><rect x="999" y="509" width="30" height="9" rx="2"/><rect x="999" y="522" width="30" height="9" rx="2"/></g>
+  <text x="1014" y="550" text-anchor="middle" font-size="10" font-weight="bold" fill="#232F3E">EC2 — Web tier</text>
+  <rect x="956" y="562" width="116" height="86" rx="4" fill="#EAF2FA"/>
+  <text x="1014" y="576" text-anchor="middle" font-size="10" fill="#2E86C1">App subnet</text>
+  <rect x="992" y="582" width="44" height="44" rx="6" fill="#FF9900"/>
+  <g fill="#ffffff"><rect x="999" y="588" width="30" height="9" rx="2"/><rect x="999" y="601" width="30" height="9" rx="2"/><rect x="999" y="614" width="30" height="9" rx="2"/></g>
+  <text x="1014" y="642" text-anchor="middle" font-size="10" font-weight="bold" fill="#232F3E">EC2 — App tier</text>
+  <rect x="956" y="654" width="116" height="86" rx="4" fill="#EAF2FA"/>
+  <text x="1014" y="668" text-anchor="middle" font-size="10" fill="#2E86C1">DB subnet</text>
+  <rect x="992" y="674" width="44" height="44" rx="6" fill="#3B48CC"/>
+  <g stroke="#ffffff" stroke-width="2.5" fill="none"><ellipse cx="1014" cy="684" rx="12" ry="5"/><path d="M1002 684 v24 a12 5 0 0 0 24 0 v-24"/></g>
+  <text x="1014" y="734" text-anchor="middle" font-size="10" font-weight="bold" fill="#232F3E">RDS primary</text>
+  <!-- AZ-b tiers -->
+  <rect x="1100" y="470" width="116" height="86" rx="4" fill="#EAF2FA"/>
+  <text x="1158" y="484" text-anchor="middle" font-size="10" fill="#2E86C1">Web subnet</text>
+  <rect x="1136" y="490" width="44" height="44" rx="6" fill="#FF9900"/>
+  <g fill="#ffffff"><rect x="1143" y="496" width="30" height="9" rx="2"/><rect x="1143" y="509" width="30" height="9" rx="2"/><rect x="1143" y="522" width="30" height="9" rx="2"/></g>
+  <text x="1158" y="550" text-anchor="middle" font-size="10" font-weight="bold" fill="#232F3E">EC2 — Web tier</text>
+  <rect x="1100" y="562" width="116" height="86" rx="4" fill="#EAF2FA"/>
+  <text x="1158" y="576" text-anchor="middle" font-size="10" fill="#2E86C1">App subnet</text>
+  <rect x="1136" y="582" width="44" height="44" rx="6" fill="#FF9900"/>
+  <g fill="#ffffff"><rect x="1143" y="588" width="30" height="9" rx="2"/><rect x="1143" y="601" width="30" height="9" rx="2"/><rect x="1143" y="614" width="30" height="9" rx="2"/></g>
+  <text x="1158" y="642" text-anchor="middle" font-size="10" font-weight="bold" fill="#232F3E">EC2 — App tier</text>
+  <rect x="1100" y="654" width="116" height="86" rx="4" fill="#EAF2FA"/>
+  <text x="1158" y="668" text-anchor="middle" font-size="10" fill="#2E86C1">DB subnet</text>
+  <rect x="1136" y="674" width="44" height="44" rx="6" fill="#3B48CC"/>
+  <g stroke="#ffffff" stroke-width="2.5" fill="none"><ellipse cx="1158" cy="684" rx="12" ry="5"/><path d="M1146 684 v24 a12 5 0 0 0 24 0 v-24"/></g>
+  <text x="1158" y="734" text-anchor="middle" font-size="10" font-weight="bold" fill="#232F3E">RDS secondary</text>
+  <text x="1086" y="776" text-anchor="middle" font-size="11" fill="#555" font-style="italic">DB subnet group</text>
+
+  <!-- ============ DEV VPC (bottom left) ============ -->
+  <rect x="44" y="824" width="420" height="128" rx="6" fill="none" stroke="#1E8C45" stroke-width="2"/>
+  <text x="58" y="846" font-size="13" font-weight="bold" fill="#1E8C45">VPC — Dev / test (isolated)</text>
+  <text x="450" y="846" text-anchor="end" font-size="11" fill="#555" font-style="italic">10.30.0.0/16</text>
+  <rect x="70" y="858" width="52" height="52" rx="8" fill="#FF9900"/>
+  <g fill="#ffffff"><rect x="78" y="866" width="36" height="10" rx="2"/><rect x="78" y="880" width="36" height="10" rx="2"/><rect x="78" y="894" width="36" height="10" rx="2"/></g>
+  <text x="140" y="882" font-size="11" font-weight="bold" fill="#232F3E">EC2 Instances</text>
+  <text x="140" y="898" font-size="10" font-style="italic" fill="#555">Dev workloads</text>
+  <text x="300" y="890" text-anchor="middle" font-size="11" fill="#555" font-style="italic">no route to prod — isolated by design</text>
+
+  <!-- ============ ON-PREM (bottom center) ============ -->
+  <rect x="490" y="824" width="300" height="128" rx="6" fill="#EDEFF1" stroke="#879196" stroke-width="2"/>
+  <text x="504" y="846" font-size="13" font-weight="bold" fill="#5D6D7E">On-premises data center</text>
+  <rect x="516" y="856" width="52" height="52" rx="8" fill="#879196"/>
+  <g fill="#ffffff"><rect x="524" y="864" width="36" height="10" rx="2"/><rect x="524" y="878" width="36" height="10" rx="2"/><rect x="524" y="892" width="36" height="10" rx="2"/></g>
+  <text x="584" y="882" font-size="11" font-weight="bold" fill="#232F3E">Corp network</text>
+  <text x="584" y="898" font-size="10" font-style="italic" fill="#555">192.168.0.0/16</text>
+
+  <!-- ============ HYBRID CONNECTORS (bottom right) ============ -->
+  <rect x="816" y="824" width="200" height="58" rx="6" fill="#8C4FFF"/>
+  <g stroke="#ffffff" stroke-width="2.5" fill="none">
+    <rect x="828" y="840" width="26" height="20" rx="3"/><path d="M834 840 v-6 a7 7 0 0 1 14 0 v6"/>
+  </g>
+  <text x="1004" y="848" text-anchor="end" font-size="12" font-weight="bold" fill="#ffffff">Site-to-Site VPN</text>
+  <text x="1004" y="864" text-anchor="end" font-size="10" font-style="italic" fill="#ffffff">Backup path (BGP)</text>
+  <rect x="816" y="894" width="200" height="58" rx="6" fill="#8C4FFF"/>
+  <g stroke="#ffffff" stroke-width="2.5" fill="none">
+    <rect x="828" y="910" width="14" height="22" rx="3"/><line x1="832" y1="910" x2="832" y2="904"/><line x1="838" y1="910" x2="838" y2="904"/>
+  </g>
+  <text x="1004" y="918" text-anchor="end" font-size="12" font-weight="bold" fill="#ffffff">Direct Connect</text>
+  <text x="1004" y="934" text-anchor="end" font-size="10" font-style="italic" fill="#ffffff">Primary path via DX gateway</text>
+
+  <!-- ============ LABELED TRAFFIC ARROWS ============ -->
+  <!-- shared -> TGW -->
+  <line x1="330" y1="560" x2="580" y2="200" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="380" y="420" font-size="11" fill="#333" transform="rotate(-38 380 420)">attach: 10.10.0.0/16</text>
+  <!-- prod -> TGW -->
+  <line x1="950" y1="560" x2="700" y2="200" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="900" y="420" font-size="11" fill="#333" transform="rotate(38 900 420)">attach: 10.20.0.0/16</text>
+  <!-- dev -> TGW -->
+  <line x1="300" y1="824" x2="600" y2="250" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="400" y="560" font-size="11" fill="#333" transform="rotate(-62 400 560)">attach: 10.30.0.0/16</text>
+  <!-- TGW -> inspection (default route) -->
+  <line x1="640" y1="386" x2="640" y2="404" stroke="#444" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="648" y="400" font-size="11" fill="#333">0.0.0.0/0 → inspection</text>
+  <!-- on-prem -> VPN/DX -->
+  <line x1="790" y1="872" x2="812" y2="856" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="790" y1="906" x2="812" y2="922" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- VPN/DX -> TGW -->
+  <line x1="916" y1="824" x2="700" y2="244" stroke="#444" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="860" y="560" font-size="11" fill="#333" transform="rotate(-58 860 560)">hybrid: 192.168.0.0/16</text>
+  <!-- dev X prod: no route -->
+  <line x1="464" y1="880" x2="936" y2="700" stroke="#B00020" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrowX)"/>
+  <text x="640" y="830" font-size="11" fill="#B00020" font-style="italic">✕ no propagated route</text>
+</svg>
