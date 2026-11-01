@@ -5,6 +5,7 @@
 ![Terraform](https://img.shields.io/badge/IaC-Terraform-7B42BC?style=for-the-badge&logo=terraform)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Level](https://img.shields.io/badge/Level-Intermediate-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Complete-success?style=for-the-badge)
 
 > **TL;DR:** The moment you have more than a couple of VPCs, **VPC peering
 > turns into a mesh of pain** — N×(N−1)/2 connections, route tables edited
@@ -174,3 +175,7 @@ Think you got it? [Take the 5-question quiz →](quiz.md)
 - [AWS landing zone guide](https://github.com/sepkascurty-cpu/aws-landing-zone-guide) — multi-account setup where the TGW hub lives
 - [Zero trust security guide](https://github.com/sepkascurty-cpu/zero-trust-security-guide) — segmentation philosophy behind isolated route tables
 - [AWS cost optimization guide](https://github.com/sepkascurty-cpu/aws-cost-optimization-guide) — FinOps guardrails for the attachment + per-GB bill
+
+---
+
+*Part of the [cloud engineering guides](https://github.com/sepkascurty-cpu?tab=repositories) series — one implementation write-up per day.*
